@@ -32,11 +32,11 @@ from docx import Document # for pdf format
 from docx.shared import Pt # for pdf format
 from docx.shared import Inches
 
- github='ultralytics/yolov5'
- torch.hub.list(github, trust_repo=True)
- model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
+github='ultralytics/yolov5'
+torch.hub.list(github, trust_repo=True)
+model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
     
- model.classes=[3 ,10,11 ,12, 17]
+model.classes=[3 ,10,11 ,12, 17]
 
 
 def predict(data_raw):
