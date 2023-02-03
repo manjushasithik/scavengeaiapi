@@ -13,7 +13,7 @@ from custom_data_type import Token, User, UserInput
 
 from subprocess import STDOUT, check_call , call,run
 
-
+import torch
 
 from app_func import predict
 
@@ -44,10 +44,18 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def database_connect():
+   
     run(['apt-get', 'update']) 
     run(['apt-get', 'install', '-y', 'libgl1'])
     run(['apt-get', 'install', '-y', 'libglib2.0-0'])
     run(['apt-get', 'install' ,'-y','abiword']) 
+   
+    github='ultralytics/yolov5'
+    torch.hub.list(github, trust_repo=True)
+    model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
+
+    model.classes=[3 ,10,11 ,12, 17]
+
     await database.connect()
 @app.on_event("shutdown")
 async def database_disconnect():
