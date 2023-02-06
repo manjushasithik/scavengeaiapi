@@ -35,11 +35,11 @@ from docx.shared import Inches
 
 def predict(data_raw):
 
-#     github='ultralytics/yolov5'
-#     torch.hub.list(github, trust_repo=True)
-#     model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
+    github='ultralytics/yolov5'
+    torch.hub.list(github, trust_repo=True)
+    model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
     
-#     model.classes=[3 ,10,11 ,12, 17]
+    model.classes=[3 ,10,11 ,12, 17]
 
 
     #print("Here")
