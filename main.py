@@ -20,13 +20,14 @@ from app_func import predict
 #import torch
 
 app = FastAPI()
-github='ultralytics/yolov5'
-torch.hub.list(github, trust_repo=True)
-model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
-model.classes=[3 ,10,11 ,12, 17]
+
 app.mount("/files", StaticFiles(directory="files"), name="files")
 
-# def runandget():
+def load_git():
+   github='ultralytics/yolov5'
+   torch.hub.list(github, trust_repo=True)
+   model = torch.hub.load("ultralytics/yolov5", "custom", path = "./rings18.pt", force_reload=True)
+   model.classes=[3 ,10,11 ,12, 17]
 #     run(['apt-get', 'update']) 
 #     run(['apt-get', 'install', '-y', 'libgl1'])
 #     run(['apt-get', 'install', '-y', 'libglib2.0-0'])
@@ -53,7 +54,7 @@ async def database_connect():
     run(['apt-get', 'install', '-y', 'libgl1'])
     run(['apt-get', 'install', '-y', 'libglib2.0-0'])
     run(['apt-get', 'install' ,'-y','abiword']) 
-   
+    load_git()
     
 
     await database.connect()
