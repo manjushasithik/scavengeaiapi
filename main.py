@@ -54,7 +54,7 @@ async def database_connect():
     run(['apt-get', 'install', '-y', 'libgl1'])
     run(['apt-get', 'install', '-y', 'libglib2.0-0'])
     run(['apt-get', 'install' ,'-y','abiword']) 
-    load_git()
+    #load_git()
     
 
     await database.connect()
