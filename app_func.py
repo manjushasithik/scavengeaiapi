@@ -415,28 +415,28 @@ def predict(data_raw):
         #         print("**************************")
         #         print("selection_deposits",selection_deposits,selection_brekage,selection_surface,selection_lubrication)
 
-    if len_tensor>0:
-        for cyl in cyls:
-            #print(type(cyl))
-            if cyl.startswith("cylinder"):
+    #if len_tensor>0:
+    for cyl in cyls:
+        #print(type(cyl))
+        if cyl.startswith("cylinder"):
 
-                selection_lubrication.append(list(defect_df_all_cyl[cyl]['lubrication'].values()))
-        
+            selection_lubrication.append(list(defect_df_all_cyl[cyl]['lubrication'].values()))
+    
 
-                selection_surface.append(list(defect_df_all_cyl[cyl]['surface'].values()))
-        
+            selection_surface.append(list(defect_df_all_cyl[cyl]['surface'].values()))
+    
 
-                selection_brekage.append(list(defect_df_all_cyl[cyl]['breakage'].values()))
-        
+            selection_brekage.append(list(defect_df_all_cyl[cyl]['breakage'].values()))
+    
 
-                selection_deposits.append(list(defect_df_all_cyl[cyl]['deposits'].values()))
+            selection_deposits.append(list(defect_df_all_cyl[cyl]['deposits'].values()))
         # print("selection_deposits",selection_deposits,selection_brekage,selection_surface,selection_lubrication)
         # elif cyl.startswith("cylinder") and len_tensor==0:
-    else:
-        selection_lubrication.append(["*","*","*","*"])
-        selection_surface.append(["*","*","*","*"])
-        selection_brekage.append(["*","*","*","*"])
-        selection_deposits.append(["*","*","*","*"])
+    #else:
+    # selection_lubrication.append(["*","*","*","*"])
+    # selection_surface.append(["*","*","*","*"])
+    # selection_brekage.append(["*","*","*","*"])
+    # selection_deposits.append(["*","*","*","*"])
     # print("selection_deposits",selection_deposits,selection_brekage,selection_surface,selection_lubrication)
 
 
