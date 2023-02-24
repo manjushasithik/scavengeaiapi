@@ -88,6 +88,4 @@ async def fetch_data(userinput: UserInput, current_user: User = Depends(get_curr
     print(pred)
     return pred
 
-@app.get("/hello")
-async def hello():
-   return "hello world"
+
